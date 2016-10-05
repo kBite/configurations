@@ -1,0 +1,73 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" Keep Plugin commands between vundle#begin/end.
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" https://github.com/voxpupuli/vim-puppet
+Plugin 'voxpupuli/vim-puppet'
+
+" https://github.com/mitsuhiko/vim-python-combined
+Plugin 'mitsuhiko/vim-python-combined'
+
+" LaTeX-Suite
+"Plugin 'vim-latex/vim-latex'
+
+" docu: https://powerline.readthedocs.io/en/latest/
+Plugin 'powerline/powerline'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General
+set background=light
+set nu
+set hlsearch
+syntax enable
+
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Modelines
+set modeline
+set modelines=5
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" all the whitespaces
+highlight BadWhitespace ctermbg=red guibg=red
+match BadWhitespace /\s\+$/
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" IDE stuff
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" custom: file based settings
+filetype plugin indent on
+
+" python
+au BufNewFile,BufRead *.py
+	\ set textwidth=79
